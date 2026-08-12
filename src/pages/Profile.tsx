@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Check, Link2 } from 'lucide-react';
 import { FOUNDER_BY_SLUG, LANDO_QUOTE, relatedFounders } from '@/data';
 import { SECTOR_BY_ID } from '@/data/types';
+import { PHOTO_BY_SLUG, creditUrl } from '@/data/photos';
 import { useI18n } from '@/i18n/I18nProvider';
 import { Monogram } from '@/components/Monogram';
 import { FounderCard } from '@/components/FounderCard';
@@ -24,6 +25,7 @@ export default function Profile() {
   if (!founder) return <Navigate to="/404" replace />;
 
   const sector = SECTOR_BY_ID[founder.sector];
+  const photo = PHOTO_BY_SLUG[founder.slug];
   const paragraphs = founder.body[lang] ?? founder.body.en;
   const related = relatedFounders(founder);
 
@@ -100,6 +102,31 @@ export default function Profile() {
               size="lg"
               className="w-full aspect-[4/5] object-[center_18%]"
             />
+            {/* Every stock image is labelled. A reader must never be able to
+                mistake a contextual photograph for a portrait of the subject. */}
+            {photo && (
+              <p className="mt-2.5 text-xs leading-relaxed text-ink-3">
+                {pick(photo.subject)}. <em>{t('photo.notportrait')}</em>{' '}
+                {t('photo.credit')}:{' '}
+                <a
+                  href={creditUrl(photo)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent link-underline"
+                >
+                  {photo.credit.name}
+                </a>{' '}
+                /{' '}
+                <a
+                  href="https://unsplash.com/?utm_source=founders_wire&utm_medium=referral"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent link-underline"
+                >
+                  Unsplash
+                </a>
+              </p>
+            )}
           </div>
         </div>
       </header>

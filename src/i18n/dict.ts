@@ -70,6 +70,8 @@ export const DICT: Record<Lang, Record<string, string>> = {
     'profile.copied': 'Link copied',
     'profile.readtime': '{n} min read',
     'profile.gallery': 'From the assignment',
+    'photo.credit': 'Photo',
+    'photo.notportrait': 'Contextual image of the business, not a portrait of the subject.',
 
     'footer.desc':
       'Founders Wire publishes profiles of the people who built the companies — how they started, what they got wrong, and what actually made the difference.',
@@ -77,7 +79,7 @@ export const DICT: Record<Lang, Record<string, string>> = {
     'footer.publication': 'Publication',
     'footer.rights': 'All rights reserved.',
     'footer.disclaimer':
-      'Archive profiles are editorial summaries compiled from public record. Public figures are represented typographically; no likeness rights are claimed.',
+      'Archive profiles are editorial summaries compiled from public record. Archive images are contextual photography of the businesses, credited via Unsplash, not portraits of the people profiled. No likeness rights are claimed.',
 
     'nf.h': 'Page not found',
     'nf.p': 'That profile is not in the archive.',
@@ -152,6 +154,8 @@ export const DICT: Record<Lang, Record<string, string>> = {
     'profile.copied': 'Enlace copiado',
     'profile.readtime': '{n} min de lectura',
     'profile.gallery': 'De la cobertura',
+    'photo.credit': 'Foto',
+    'photo.notportrait': 'Imagen contextual del negocio, no un retrato del biografiado.',
 
     'footer.desc':
       'Founders Wire publica perfiles de la gente que construyó las empresas: cómo empezaron, en qué se equivocaron y qué marcó realmente la diferencia.',
@@ -159,7 +163,7 @@ export const DICT: Record<Lang, Record<string, string>> = {
     'footer.publication': 'Publicación',
     'footer.rights': 'Todos los derechos reservados.',
     'footer.disclaimer':
-      'Los perfiles del archivo son resúmenes editoriales compilados de información pública. Las figuras públicas se representan tipográficamente; no se reclama ningún derecho de imagen.',
+      'Los perfiles del archivo son resúmenes editoriales compilados de información pública. Las imágenes del archivo son fotografía contextual de los negocios, acreditada vía Unsplash, no retratos de las personas perfiladas. No se reclama ningún derecho de imagen.',
 
     'nf.h': 'Página no encontrada',
     'nf.p': 'Ese perfil no está en el archivo.',
