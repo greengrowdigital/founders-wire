@@ -1,17 +1,20 @@
 import { SECTOR_BY_ID, initials } from '@/data/types';
 import type { Founder } from '@/data/types';
 import { PHOTO_BY_SLUG } from '@/data/photos';
+import { PORTRAIT_BY_SLUG } from '@/data/portraits';
 import { useI18n } from '@/i18n/I18nProvider';
 
 /**
- * Portrait slot for a profile. Three cases, in order of preference:
+ * Portrait slot for a profile. Four cases, in order of preference:
  *
  * 1. Real photography the publication owns — currently only the lead profile.
- * 2. Contextual stock photography of what the founder built, tinted with the
+ * 2. A real portrait from Wikimedia Commons, where a freely licensed one
+ *    exists. Rendered plainly, because it genuinely is the person.
+ * 3. Contextual stock photography of what the founder built, tinted with the
  *    sector colour and overprinted with the monogram. The monogram is not
- *    decoration: it stops the image reading as a face, because these are not
- *    portraits of the subject.
- * 3. A flat monogram, if no image is mapped for the slug.
+ *    decoration there: it stops the image reading as a face, because those are
+ *    not portraits of the subject.
+ * 4. A flat monogram, if nothing is mapped for the slug.
  */
 
 /**
@@ -64,9 +67,23 @@ export function Monogram({
     );
   }
 
+  // 2. A real, freely licensed portrait. No tint and no overprint: this is the
+  //    person, so nothing should suggest otherwise.
+  const portrait = PORTRAIT_BY_SLUG[founder.slug];
+  if (portrait) {
+    return (
+      <img
+        src={`/portraits/${portrait.file}`}
+        alt={founder.name}
+        loading="lazy"
+        className={`object-cover ${className}`}
+      />
+    );
+  }
+
   const photo = PHOTO_BY_SLUG[founder.slug];
 
-  // 2. Contextual photography under the sector tint.
+  // 3. Contextual photography under the sector tint.
   if (photo) {
     return (
       <div className={`relative overflow-hidden isolate ${className}`}>
@@ -96,7 +113,7 @@ export function Monogram({
     );
   }
 
-  // 3. Flat monogram.
+  // 4. Flat monogram.
   return (
     <div
       className={`monogram ${TEXT_SIZE[size]} ${className}`}

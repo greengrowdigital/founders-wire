@@ -20,7 +20,9 @@ function initialLang(): Lang {
   if (typeof window === 'undefined') return 'en';
   const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored === 'en' || stored === 'es') return stored;
-  return navigator.language?.toLowerCase().startsWith('es') ? 'es' : 'en';
+  // English is the masthead language. A returning reader's own choice is
+  // honoured above, but browser locale does not get to pick for a first visit.
+  return 'en';
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {

@@ -48,7 +48,7 @@ export function FounderCard({
         className="rule-hair py-6"
       >
         <Link to={`/profiles/${founder.slug}`} className="group grid grid-cols-[64px_1fr] sm:grid-cols-[92px_1fr] gap-5 items-start">
-          <Monogram founder={founder} size="sm" className="aspect-square w-full" />
+          <Monogram founder={founder} size="sm" className="aspect-square w-full object-[center_18%]" />
           <div className="min-w-0">
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
               <span className="kicker" style={{ color: sector.color }}>
@@ -82,7 +82,7 @@ export function FounderCard({
           <Monogram
             founder={founder}
             size="lg"
-            className="aspect-[4/3] w-full transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+            className="aspect-[4/3] w-full object-[center_22%] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
           />
         </div>
         <span className="kicker block mb-2" style={{ color: sector.color }}>

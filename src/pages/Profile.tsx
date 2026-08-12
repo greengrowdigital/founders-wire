@@ -5,6 +5,7 @@ import { ArrowLeft, Check, Link2 } from 'lucide-react';
 import { FOUNDER_BY_SLUG, LANDO_QUOTE, relatedFounders } from '@/data';
 import { SECTOR_BY_ID } from '@/data/types';
 import { PHOTO_BY_SLUG, creditUrl } from '@/data/photos';
+import { PORTRAIT_BY_SLUG } from '@/data/portraits';
 import { useI18n } from '@/i18n/I18nProvider';
 import { Monogram } from '@/components/Monogram';
 import { FounderCard } from '@/components/FounderCard';
@@ -26,6 +27,7 @@ export default function Profile() {
 
   const sector = SECTOR_BY_ID[founder.sector];
   const photo = PHOTO_BY_SLUG[founder.slug];
+  const portrait = PORTRAIT_BY_SLUG[founder.slug];
   const paragraphs = founder.body[lang] ?? founder.body.en;
   const related = relatedFounders(founder);
 
@@ -102,9 +104,41 @@ export default function Profile() {
               size="lg"
               className="w-full aspect-[4/5] object-[center_18%]"
             />
+            {/* A real portrait: credit the photographer and the licence, which
+                CC BY and CC BY-SA both require, and link back to the source
+                file so a reader can verify the terms. */}
+            {portrait && (
+              <p className="mt-2.5 text-xs leading-relaxed text-ink-3">
+                {founder.name}. {t('photo.credit')}:{' '}
+                <a
+                  href={portrait.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent link-underline"
+                >
+                  {portrait.author}
+                </a>
+                {' / '}
+                {portrait.licenseUrl ? (
+                  <a
+                    href={portrait.licenseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent link-underline"
+                  >
+                    {portrait.license}
+                  </a>
+                ) : (
+                  portrait.license
+                )}
+                {' '}
+                <span className="text-ink-3">· Wikimedia Commons</span>
+              </p>
+            )}
+
             {/* Every stock image is labelled. A reader must never be able to
                 mistake a contextual photograph for a portrait of the subject. */}
-            {photo && (
+            {!portrait && photo && (
               <p className="mt-2.5 text-xs leading-relaxed text-ink-3">
                 {pick(photo.subject)}. <em>{t('photo.notportrait')}</em>{' '}
                 {t('photo.credit')}:{' '}

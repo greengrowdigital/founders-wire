@@ -2,18 +2,25 @@ import { LANDO } from './lando';
 import { TECH_FOUNDERS } from './founders.tech';
 import { COMMERCE_FOUNDERS } from './founders.commerce';
 import { CULTURE_FOUNDERS } from './founders.culture';
+import { YOUNG_FOUNDERS } from './founders.young';
 import type { Founder, SectorId } from './types';
 
 export * from './types';
 export { LANDO, LANDO_QUOTE } from './lando';
 
-/** Every profile on the site. The lead profile always sorts first. */
+/** Every profile on the site. */
 export const FOUNDERS: Founder[] = [
   LANDO,
   ...TECH_FOUNDERS,
   ...COMMERCE_FOUNDERS,
   ...CULTURE_FOUNDERS,
+  ...YOUNG_FOUNDERS,
 ];
+
+/** Born 1980 or later — the desk's "current generation" rail. */
+export const CURRENT_GENERATION: Founder[] = FOUNDERS.filter(
+  (f) => parseInt(f.born, 10) >= 1980,
+).sort((a, b) => parseInt(b.born, 10) - parseInt(a.born, 10));
 
 export const FOUNDER_BY_SLUG = Object.fromEntries(
   FOUNDERS.map((f) => [f.slug, f]),
