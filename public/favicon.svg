@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0A0A0A"/>
+  <rect x="6" y="27" width="52" height="4" fill="#00D2C0"/>
+  <text x="32" y="24" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF" text-anchor="middle">FW</text>
+  <text x="32" y="50" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#00D2C0" text-anchor="middle" letter-spacing="1">WIRE</text>
+</svg>
