@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Check, Link2 } from 'lucide-react';
-import { FOUNDER_BY_SLUG, LANDO_QUOTE, relatedFounders } from '@/data';
+import { FOUNDER_BY_SLUG, relatedFounders } from '@/data';
 import { SECTOR_BY_ID } from '@/data/types';
 import { PHOTO_BY_SLUG, creditUrl } from '@/data/photos';
 import { PORTRAIT_BY_SLUG } from '@/data/portraits';
@@ -182,16 +182,6 @@ export default function Profile() {
               </motion.p>
             ))}
           </div>
-
-          {/* The lead profile carries a pull quote in his own words. */}
-          {founder.lead && (
-            <blockquote className="my-12 border-y-2 border-ink py-8 max-w-[68ch]">
-              <p className="font-display text-[1.5rem] sm:text-[2rem] font-bold leading-[1.15] tracking-[-0.02em]">
-                “{pick(LANDO_QUOTE)}”
-              </p>
-              <cite className="mt-4 block kicker not-italic text-ink-3">{founder.name}</cite>
-            </blockquote>
-          )}
 
           {founder.gallery && (
             <section className="mt-12">

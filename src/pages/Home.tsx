@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { BY_ERA, CURRENT_GENERATION, FOUNDERS, FOUNDER_BY_SLUG, LANDO, LANDO_QUOTE } from '@/data';
+import { BY_ERA, CURRENT_GENERATION, FOUNDERS, FOUNDER_BY_SLUG } from '@/data';
 import { SECTORS, SECTOR_BY_ID } from '@/data/types';
 import type { Founder } from '@/data/types';
 import { useI18n } from '@/i18n/I18nProvider';
@@ -14,10 +13,7 @@ import { SectionHead } from '@/components/SectionHead';
  * Front page.
  *
  * Laid out like a newspaper rather than a portfolio: a lead story, two
- * shoulders, a column of briefs, then sector rails down the page. The
- * publication's own lead profile sits in its own labelled slot further down —
- * putting it in the top spot made the whole site read as a vanity page rather
- * than a publication.
+ * shoulders, a column of briefs, then sector rails down the page.
  */
 
 // Fixed front-page assignments. Hand-picked rather than sliced off the top of
@@ -34,13 +30,13 @@ function pick(slugs: string[]): Founder[] {
 export default function Home() {
   const { t, pick: L } = useI18n();
 
-  const lead = FOUNDER_BY_SLUG[LEAD] ?? FOUNDERS[1];
+  const lead = FOUNDER_BY_SLUG[LEAD] ?? FOUNDERS[0];
   const shoulders = pick(SHOULDERS);
   const briefs = pick(BRIEFS);
   const secondRow = pick(SECOND_ROW);
 
-  const featuredSlugs = new Set([LEAD, ...SHOULDERS, ...BRIEFS, ...SECOND_ROW, LANDO.slug]);
-  const young = CURRENT_GENERATION.filter((f) => f.slug !== LANDO.slug).slice(0, 6);
+  const featuredSlugs = new Set([LEAD, ...SHOULDERS, ...BRIEFS, ...SECOND_ROW]);
+  const young = CURRENT_GENERATION.slice(0, 6);
   const rest = FOUNDERS.filter((f) => !featuredSlugs.has(f.slug)).slice(0, 4);
   const era = BY_ERA.slice(0, 6);
 
@@ -177,43 +173,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────── The publication's own lead profile ───────────── */}
-      <section className="py-12 border-y-2 border-ink">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-5">
-            <Monogram
-              founder={LANDO}
-              size="lg"
-              className="w-full aspect-[4/3] object-[center_20%]"
-            />
-          </div>
-          <div className="lg:col-span-7">
-            <span className="kicker inline-block bg-flag text-white px-2.5 py-1.5 mb-4">
-              {t('home.lead.kicker')}
-            </span>
-            <h2 className="hed text-[clamp(1.8rem,4vw,2.9rem)]">{LANDO.name}</h2>
-            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">
-              {LANDO.company} · {t('profile.readtime', { n: LANDO.readMinutes })}
-            </p>
-            <p className="dek mt-4 text-[1.02rem] max-w-[56ch]">{L(LANDO.dek)}</p>
-            <blockquote className="mt-5 border-l-2 border-teal pl-5">
-              <p className="font-display text-[1.1rem] sm:text-[1.25rem] font-semibold leading-snug tracking-[-0.015em]">
-                “{L(LANDO_QUOTE)}”
-              </p>
-            </blockquote>
-            <Link
-              to={`/profiles/${LANDO.slug}`}
-              className="group mt-6 inline-flex items-center gap-2 bg-ink text-white kicker px-5 py-3.5 hover:bg-accent transition-colors"
-            >
-              {t('home.lead.cta')}
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ───────────── More from the archive + newsletter ───────────── */}
-      <section className="py-12">
+      <section className="py-12 border-t-2 border-ink">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-8">
             <SectionHead

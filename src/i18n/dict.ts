@@ -16,11 +16,9 @@ export const DICT: Record<Lang, Record<string, string>> = {
 
     'ticker.label': 'The Wire',
 
-    'home.lead.kicker': 'The Lead Profile',
     'home.briefs': 'In brief',
     'home.young': 'The current generation',
     'home.young.sub': 'Founders who are still building the thing they will be known for',
-    'home.lead.cta': 'Read the full profile',
     'home.latest': 'Latest profiles',
     'home.latest.sub': 'Reported summaries of how the companies actually got built',
     'home.sectors': 'Browse by sector',
@@ -103,11 +101,9 @@ export const DICT: Record<Lang, Record<string, string>> = {
 
     'ticker.label': 'El Cable',
 
-    'home.lead.kicker': 'Perfil principal',
     'home.briefs': 'En breve',
     'home.young': 'La generación actual',
     'home.young.sub': 'Fundadores que todavía están construyendo aquello por lo que se les conocerá',
-    'home.lead.cta': 'Leer el perfil completo',
     'home.latest': 'Últimos perfiles',
     'home.latest.sub': 'Resúmenes de cómo se construyeron realmente las empresas',
     'home.sectors': 'Explorar por sector',

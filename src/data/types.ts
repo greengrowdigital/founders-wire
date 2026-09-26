@@ -47,8 +47,6 @@ export type Founder = {
   /** Real photography, only where the site holds the rights. */
   portrait?: string;
   gallery?: { src: string; caption: Bi }[];
-  /** The site's own lead profile, pinned to the top of the homepage. */
-  lead?: boolean;
   /** Reading time in minutes, shown on cards. */
   readMinutes: number;
 };
