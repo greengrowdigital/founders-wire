@@ -46,7 +46,11 @@ export type Founder = {
   monogram?: string;
   /** Real photography, only where the site holds the rights. */
   portrait?: string;
+  /** CSS object-position for `portrait`, overriding the slot's default focal point. */
+  portraitFocus?: string;
   gallery?: { src: string; caption: Bi }[];
+  /** The site's own lead profile, pinned to the top of the homepage. */
+  lead?: boolean;
   /** Reading time in minutes, shown on cards. */
   readMinutes: number;
 };

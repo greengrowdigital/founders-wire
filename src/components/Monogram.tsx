@@ -7,7 +7,7 @@ import { useI18n } from '@/i18n/I18nProvider';
 /**
  * Portrait slot for a profile. Four cases, in order of preference:
  *
- * 1. Real photography the publication owns.
+ * 1. Real photography the publication owns — currently only the lead profile.
  * 2. A real portrait from Wikimedia Commons, where a freely licensed one
  *    exists. Rendered plainly, because it genuinely is the person.
  * 3. Contextual stock photography of what the founder built, tinted with the
@@ -63,6 +63,7 @@ export function Monogram({
         alt={founder.name}
         loading="lazy"
         className={`object-cover ${className}`}
+        style={founder.portraitFocus ? { objectPosition: founder.portraitFocus } : undefined}
       />
     );
   }

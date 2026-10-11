@@ -15,7 +15,7 @@ export default function About() {
       ],
       how: 'How the profiles are made',
       howP: [
-        'Every entry is an editorial summary compiled from widely published public record.',
+        'The lead profile is reported directly with the subject. Every other entry is an editorial summary compiled from widely published public record.',
         'We deliberately avoid two things that make this kind of writing go stale: net-worth figures, which change constantly and say very little, and present-tense claims about who currently holds which title. Where a founder’s record includes documented controversy, it appears in the profile rather than being edited out.',
         'No quotation is attributed to anyone unless the wording is a matter of documented record.',
       ],
@@ -23,6 +23,7 @@ export default function About() {
       imagesP: [
         'None of the archive images are portraits. Stock libraries do not carry photographs of these people, and presenting a stock model as a named public figure would be a fabricated likeness, so we do not do it.',
         'Instead each profile carries a photograph of the thing the founder built: a launch, a warehouse aisle, an espresso counter, an assembly line. The image is tinted to its sector and overprinted with the founder’s initials, which is what stops it reading as a face. Every one is captioned with what it actually shows and credited to the photographer, all of them via Unsplash.',
+        'Where the publication holds the rights to original photography — as with the lead profile — the real images are used, and they are the only images on the site that show the person being written about.',
       ],
       numbers: 'The archive in numbers',
     },
@@ -34,7 +35,7 @@ export default function About() {
       ],
       how: 'Cómo se hacen los perfiles',
       howP: [
-        'Cada entrada es un resumen editorial compilado de información pública ampliamente publicada.',
+        'El perfil principal se reporta directamente con el protagonista. Cada otra entrada es un resumen editorial compilado de información pública ampliamente publicada.',
         'Evitamos deliberadamente dos cosas que envejecen mal en este tipo de textos: las cifras de patrimonio, que cambian constantemente y dicen muy poco, y las afirmaciones en presente sobre quién ocupa qué cargo. Cuando el historial de un fundador incluye controversias documentadas, aparecen en el perfil en lugar de ser editadas.',
         'No se atribuye ninguna cita a nadie a menos que la formulación sea materia de registro documentado.',
       ],
@@ -42,6 +43,7 @@ export default function About() {
       imagesP: [
         'Ninguna imagen del archivo es un retrato. Los bancos de imágenes no tienen fotografías de estas personas, y presentar a un modelo de stock como una figura pública con nombre y apellido sería fabricar un retrato falso, así que no lo hacemos.',
         'En su lugar, cada perfil lleva una fotografía de aquello que el fundador construyó: un lanzamiento, un pasillo de bodega, una barra de espresso, una línea de montaje. La imagen se tiñe con el color de su sector y se sobreimprime con las iniciales del fundador, que es lo que impide que se lea como una cara. Cada una lleva pie de foto con lo que realmente muestra y crédito al fotógrafo, todas vía Unsplash.',
+        'Cuando la publicación sí tiene los derechos de fotografía original, como en el perfil principal, se usan las imágenes reales, y son las únicas del sitio que muestran a la persona de la que se escribe.',
       ],
       numbers: 'El archivo en números',
     },
@@ -51,7 +53,7 @@ export default function About() {
     { v: String(FOUNDERS.length), k: lang === 'es' ? 'Perfiles' : 'Profiles' },
     { v: String(SECTORS.length), k: lang === 'es' ? 'Sectores' : 'Sectors' },
     { v: '1863', k: lang === 'es' ? 'Nacimiento más antiguo' : 'Earliest birth year' },
-    { v: '2004', k: lang === 'es' ? 'Nacimiento más reciente' : 'Latest birth year' },
+    { v: '2006', k: lang === 'es' ? 'Nacimiento más reciente' : 'Latest birth year' },
   ];
 
   return (
